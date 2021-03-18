@@ -1,6 +1,8 @@
 import CategorieNav from './CategorieNav/CategorieNav';
 
-const Categories = () => {
+const Categories = ({
+    match,
+}) => {
     return (
         <section class="dashboard">
             <h1>Dashboard</h1>
