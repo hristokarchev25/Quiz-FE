@@ -10,7 +10,8 @@ class Categories extends Component {
         super(props);
 
         this.state = {
-            pets: []
+            pets: [],
+            currentCategory: 'all',
         }
 
     }
@@ -22,7 +23,8 @@ class Categories extends Component {
 
     componentDidUpdate() {
         petService.getAll(this.props.match.params.category)
-            .then(res => this.setState({ pets: res }));
+            .then(res =>
+                this.setState({ pets: res, currentCategory: this.props.match.params.category }));
     }
 
     render() {
