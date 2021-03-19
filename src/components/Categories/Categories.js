@@ -1,5 +1,6 @@
 import { Component } from 'react';
 
+import * as petService from '../../services/petService';
 import Pet from '../Pet/Pet';
 import CategorieNav from './CategorieNav/CategorieNav';
 
@@ -15,10 +16,13 @@ class Categories extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/pets')
-            .then(res => res.json())
-            .then(res => this.setState({ pets: res }))
-            .catch(err => console.log(err));
+        petService.getAll()
+            .then(res => this.setState({ pets: res }));
+    }
+
+    componentDidUpdate() {
+        petService.getAll(this.props.match.params.category)
+            .then(res => this.setState({ pets: res }));
     }
 
     render() {
