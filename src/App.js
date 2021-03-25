@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import Categories from './components/Categories/Categories';
 import PetDetails from './components/PetDetails/PetDetails';
 import DemoPage from './components/Demo';
+import CreatePet from './components/CreatePet/CreatePet';
 import './App.css';
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/categories/:category" exact component={Categories} />
         <Route path="/pets/details/:petId" component={PetDetails} />
         <Route path="/demo" component={DemoPage} />
+        <Route path="/pets/create" component={CreatePet} />
       </Switch>
 
       <Footer />
