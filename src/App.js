@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Categories from './components/Categories/Categories';
 import PetDetails from './components/PetDetails/PetDetails';
+import EditPet from './components/EditPet/EditPet';
 import DemoPage from './components/Demo';
 import CreatePet from './components/CreatePet/CreatePet';
 import './App.css';
@@ -19,7 +20,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Categories} />
         <Route path="/categories/:category" exact component={Categories} />
-        <Route path="/pets/details/:petId" component={PetDetails} />
+        <Route path="/pets/details/:petId" exact component={PetDetails} />
+        <Route path="/pets/details/:petId/edit" component={EditPet} />
         <Route path="/demo" component={DemoPage} />
         <Route path="/pets/create" component={CreatePet} />
       </Switch>
