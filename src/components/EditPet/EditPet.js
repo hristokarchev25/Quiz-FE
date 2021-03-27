@@ -4,7 +4,8 @@ import * as petService from '../../services/petService';
 import InputError from '../Shared/InputError/InputError';
 
 const EditPet = ({
-    match
+    match,
+    history
 }) => {
     const [pet, setPet] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
@@ -17,7 +18,15 @@ const EditPet = ({
     const onDescriptionSaveSubmit = (e) => {
         e.preventDefault();
         console.log(e.target);
-        
+
+        let petId = match.params.petId;
+        let updatedPet = { ...pet, description: e.target.description.value };
+
+        petService.update(petId, updatedPet)
+            .then(() => {
+                history.push(`/pets/details/${petId} `);
+                return;
+            })
     }
 
 
