@@ -24,6 +24,7 @@ function App() {
         <Route path="/pets/details/:petId/edit" component={EditPet} />
         <Route path="/demo" component={DemoPage} />
         <Route path="/pets/create" component={CreatePet} />
+        <Route path="/pets/:petId/edit" component={DemoPage} />
       </Switch>
 
       <Footer />
