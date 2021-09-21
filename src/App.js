@@ -1,35 +1,37 @@
-import { Route, Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Categories from './components/Categories/Categories';
-import PetDetails from './components/PetDetails/PetDetails';
-import EditPet from './components/EditPet/EditPet';
-import DemoPage from './components/Demo';
-import CreatePet from './components/CreatePet/CreatePet';
-import './App.css';
-
+import LoadingScreen from './components/LoadingPage/LoadingPage';
+import Start from './components/Start/Start';
+import About from './components/About/About';
+import Questions from './components/Questions/Questions';
+import Error from './components/Error/404';
 
 function App() {
-  return (
-    <div className="container">
 
-      <Header />
+	const [Loading, setLoading] = useState(false);
 
-      <Switch>
-        <Route path="/" exact component={Categories} />
-        <Route path="/categories/:category" exact component={Categories} />
-        <Route path="/pets/details/:petId" exact component={PetDetails} />
-        <Route path="/pets/details/:petId/edit" component={EditPet} />
-        <Route path="/demo" component={DemoPage} />
-        <Route path="/pets/create" component={CreatePet} />
-        <Route path="/pets/:petId/edit" component={DemoPage} />
-      </Switch>
+	useEffect(() => {
+		setTimeout(() => setLoading(true), 1500);
+	}, []);
 
-      <Footer />
-    </div>
-  );
+	return (
+		<>
+			{Loading === true ?
+				(
+					<div className="app">
+						<Switch>
+							<Route path="/" exact component={Start} />
+							<Route path="/about" exact component={About} />
+							<Route path="/questions" exact component={Questions} />
+							<Route component={Error} />
+						</Switch>
+					</div>
+				) : (
+					<LoadingScreen />
+				)}
+		</>
+	);
 }
 
 export default App;

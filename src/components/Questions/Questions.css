@@ -1,0 +1,138 @@
+.question__page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.questions {
+    background-color: #F3F2ED;
+    width: 500px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    border: 2px solid black;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+  }
+  
+  .score__section {
+    display: flex;
+    font-size: 24px;
+    color: black;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .question__section {
+    width: 100%;
+    position: relative;
+  }
+ 
+  .question__text {
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    color: black;
+    font-size: large;
+  }
+  
+  .answer__section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .question__btn {
+    width: 100%;
+    margin-bottom: 7px;
+    font-size: 16px;
+    color: black;
+    background-color: #F3F2ED;
+    border-radius: 8px;
+    display: flex;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid #234668;
+    cursor: pointer;
+  }
+  .question__btn:hover {
+    /* background-color: lightgreen; */
+    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.548);
+    /* color: white; */
+    border: 2px solid black;
+  }
+  .answer__prefix {
+      padding: 1.5% 2.5%;
+      margin-right: 10px;
+      background-color: #0B4AF9;
+      color: white;
+  }
+
+  .time__line {
+      margin-bottom: 15px;
+  }
+  .time__line > div{
+    height: 5px;
+    width: 500px;
+    background: linear-gradient(to bottom, red, #900);
+  }
+
+  @keyframes roundtime {
+    to {
+      /* More performant than animating `width` */
+      transform: scaleX(0);
+    }
+  }
+  .time__line > div {
+      animation: roundtime calc(1800 * 1s) steps(1800) forwards;
+      transform-origin: left center;
+  }
+  .time__line > span {
+      color: black;
+  }
+
+  @media screen and (max-width: 640px) {
+    .questions {
+        background-color: #F3F2ED;
+        width: 300px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        border: 2px solid black;
+        padding: 20px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+      }
+      .time__line {
+        margin-bottom: 15px;
+    }
+    .time__line > div{
+      height: 5px;
+      width: 300px;
+      background: linear-gradient(to bottom, red, #900);
+    }
+  
+    @keyframes roundtime {
+      to {
+        /* More performant than animating `width` */
+        transform: scaleX(0);
+      }
+    }
+    .time__line > div {
+        animation: roundtime calc(1800 * 1s) steps(1800) forwards;
+        transform-origin: left center;
+    }
+    .time__line > span {
+        color: black;
+    }
+}
