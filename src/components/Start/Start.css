@@ -42,9 +42,8 @@
     cursor: pointer;
 }
 .quiz__btn:hover {
-    background-color: #0B4AF9;
+    background-color: #a8c0ff;
     text-transform: uppercase;
-    color: white;
     font-size: 20px;
 }
 
